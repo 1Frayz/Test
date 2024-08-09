@@ -30,7 +30,7 @@ $posts = $postsModel->all($currentPage, $itemsPerPage);
         <?php foreach ($posts as $post) {
             $user = (new User())->find('id', $post->getAuthor());
         ?>
-            <a href="post/<?php echo htmlspecialchars($post->id()); ?>" class="card mb-4"
+            <a href="/post/<?php echo htmlspecialchars($post->id()); ?>" class="card mb-4"
                 style="text-decoration: none; color: black">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo htmlspecialchars($post->getTitle()); ?></h5>

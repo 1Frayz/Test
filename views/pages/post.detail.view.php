@@ -30,7 +30,7 @@ $comments = (new Comment())->find('post_id', $post->id(), true);
                 <h6 class="card-subtitle mb-2 text-muted"><?php echo htmlspecialchars($user->getUsername()); ?></h6>
                 <p class="card-text"><?php echo htmlspecialchars($post->getDescription()); ?></p>
                 <p><?php echo nl2br(htmlspecialchars($post->getMessage())); ?></p>
-                <?php if (Auth::id() == $post->getAuthor()): ?>
+                <?php if (Auth::check() && Auth::id() == $post->getAuthor()): ?>
                     <a href="/post/edit/<?php echo htmlspecialchars($post->id()); ?>" class="btn btn-primary">Update
                         post</a>
                 <?php endif; ?>
